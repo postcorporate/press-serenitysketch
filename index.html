@@ -2,6 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    (function () {
+      var b = document.createElement('base');
+      if (/\.github\.io$/i.test(location.hostname)) {
+        var parts = location.pathname.split('/').filter(Boolean);
+        b.href = parts.length ? '/' + parts[0] + '/' : '/';
+      } else {
+        b.href = './';
+      }
+      document.head.insertBefore(b, document.head.firstChild);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Serenity Sketch - a guided mindfulness sandbox for iPad. Paint with water, watch it evaporate, find stillness in letting go.">
   <meta property="og:title" content="Serenity Sketch - Press Kit">
