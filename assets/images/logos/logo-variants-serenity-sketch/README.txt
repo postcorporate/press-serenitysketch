@@ -26,10 +26,10 @@ logo-<variant>-<small|medium|large>-<W>x<H>.<png|webp>
 Regeneration
 ------------
 From the repo root:
-  python serenity-sketch-presskit/scripts/generate-logo-variants.py --logo serenity-sketch
+  python serenity-sketch-presskit/website/scripts/generate-logo-variants.py --logo serenity-sketch
 
 Or rebuild every logo set in one go:
-  python serenity-sketch-presskit/scripts/generate-logo-variants.py
+  python serenity-sketch-presskit/website/scripts/generate-logo-variants.py
 
 The script uses cairosvg (preferred) or Inkscape on PATH (or pass
 --inkscape <full path>). Transparent padding is automatically trimmed
