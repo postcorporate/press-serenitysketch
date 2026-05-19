@@ -120,13 +120,21 @@ h2.display { font-size: clamp(2rem, 4.4vw, 3.2rem); }
 
 .lead, .lede {
   font-size: clamp(1.05rem, 1.4vw, 1.2rem);
-  color: var(--ink-soft);
   max-width: 60ch;
   margin: 0 0 1.25rem;
 }
+.lead { color: var(--ink-soft); }
+.lede { color: var(--ink); font-weight: 500; }
 
-.prose p { max-width: 64ch; }
-.prose .lede { color: var(--ink); font-weight: 500; }
+.prose {
+  max-width: 64ch;
+  text-align: justify;
+  text-wrap: pretty;
+  hyphens: auto;
+}
+.prose p { max-width: none; margin: 0 0 1.25rem; }
+.prose .lede { max-width: none; }
+.prose .emphasis { text-align: left; }
 .emphasis {
   font-family: var(--serif);
   font-style: italic;
@@ -316,8 +324,8 @@ h2.display { font-size: clamp(2rem, 4.4vw, 3.2rem); }
 .pullquote::before { content: "“ "; }
 .pullquote::after  { content: " ”"; }
 
-/* ---------- Experience ---------- */
-.section-experience { background: var(--paper); }
+/* ---------- Features ---------- */
+.section-features { background: var(--paper); }
 .paths {
   display: grid; gap: 1.25rem;
   margin: 2.5rem 0 3.5rem;
@@ -589,6 +597,12 @@ h2.display { font-size: clamp(2rem, 4.4vw, 3.2rem); }
   background: var(--paper-soft);
   border-top: 1px solid var(--rule);
 }
+.section-studio .lede {
+  max-width: 64ch;
+  text-align: justify;
+  text-wrap: pretty;
+  hyphens: auto;
+}
 .studio-mark-link {
   display: inline-block;
   margin: 0 0 1.5rem;
@@ -717,9 +731,9 @@ h2.display { font-size: clamp(2rem, 4.4vw, 3.2rem); }
   background: var(--ink);
 }
 
-/* ---------- Experience pillars ---------- */
-.section-experience { padding-bottom: clamp(3rem, 6vw, 6rem); }
-.section-experience > .container:first-child {
+/* ---------- Features pillars ---------- */
+.section-features { padding-bottom: clamp(3rem, 6vw, 6rem); }
+.section-features > .container:first-child {
   margin-bottom: clamp(2rem, 4vw, 3.5rem);
 }
 
@@ -765,13 +779,18 @@ h2.display { font-size: clamp(2rem, 4.4vw, 3.2rem); }
 }
 .pillar-text p {
   color: var(--ink-soft);
-  max-width: 50ch;
   margin: 0;
+}
+.pillar-grid .pillar-text {
+  max-width: 50ch;
+}
+.pillar-grid .pillar-text p,
+.pillar-grid .pillar-prompt-list {
+  max-width: none;
 }
 .pillar-prompt-list {
   margin: 0.85rem 0 0;
   padding-left: 1.25rem;
-  max-width: 50ch;
   color: var(--ink-soft);
 }
 .pillar-prompt-list li + li { margin-top: 0.55rem; }
@@ -780,7 +799,18 @@ h2.display { font-size: clamp(2rem, 4.4vw, 3.2rem); }
   margin: 0 auto clamp(2rem, 4vw, 3rem);
   max-width: 56ch;
 }
-.pillar-text--centered p { margin-inline: auto; }
+.pillar--mechanic .pillar-text > p:not(.pillar-eyebrow),
+.pillar--settings .pillar-text > p:not(.pillar-eyebrow),
+.pillar--guided .pillar-text > p:not(.pillar-eyebrow),
+.pillar--journey .pillar-text > p:not(.pillar-eyebrow),
+.pillar--guided .pillar-prompt-list {
+  text-align: justify;
+  text-wrap: pretty;
+  hyphens: auto;
+}
+.pillar-text--centered > p:not(.pillar-eyebrow) {
+  width: 100%;
+}
 
 /* Triple-video grid (core mechanic) */
 .pillar-media--triple {
