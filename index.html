@@ -11,8 +11,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="assets/images/logo-grey.svg">
   <title>Serenity Sketch - Press Kit</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -43,10 +44,15 @@
     <section id="top" class="hero" aria-label="Hero">
       <video class="hero-art" id="hero-video"
         autoplay muted loop playsinline
-        preload="auto"
-        poster="assets/images/presskit_heroVid_still-1920x1080.webp">
+        preload="metadata"
+        poster="assets/images/presskit_heroVid_still-800x450.webp">
         <source src="assets/vids/presskit_heroVid_loop_compressed.mp4" type="video/mp4">
-        <img src="assets/images/presskit_heroVid_still-1920x1080.webp"
+        <img src="assets/images/presskit_heroVid_still-800x450.webp"
+             srcset="assets/images/presskit_heroVid_still-600x338.webp 600w,
+                     assets/images/presskit_heroVid_still-800x450.webp 800w,
+                     assets/images/presskit_heroVid_still-1200x675.webp 1200w,
+                     assets/images/presskit_heroVid_still-1920x1080.webp 1920w"
+             sizes="100vw"
              alt="Water painting on stone, mid-evaporation, in a serene natural setting">
       </video>
       <div class="hero-scrim" aria-hidden="true"></div>
@@ -54,7 +60,7 @@
         <p class="eyebrow">Press Kit · Summer 2026</p>
         <h1 class="hero-logo">
           <img
-            src="assets/images/logos/logo-variants-serenity-sketch/grey_transparent/logo-grey_transparent-medium-640x302.png"
+            src="assets/images/logos/logo-variants-serenity-sketch/grey_transparent/logo-grey_transparent-medium-640x302.webp"
             srcset="assets/images/logos/logo-variants-serenity-sketch/grey_transparent/logo-grey_transparent-small-320x151.webp 320w,
                     assets/images/logos/logo-variants-serenity-sketch/grey_transparent/logo-grey_transparent-medium-640x302.webp 640w,
                     assets/images/logos/logo-variants-serenity-sketch/grey_transparent/logo-grey_transparent-large-1280x605.webp 1280w"
@@ -94,13 +100,18 @@
       <div class="container">
         <p class="section-eyebrow">Watch</p>
         <figure class="trailer-figure">
-          <iframe class="trailer-video"
-            src="https://www.youtube-nocookie.com/embed/b32JXo8g6tw?rel=0&modestbranding=1"
-            title="Serenity Sketch — Teaser Trailer"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            loading="lazy"></iframe>
+          <div class="trailer-facade" tabindex="0" data-youtube-id="b32JXo8g6tw" data-youtube-title="Serenity Sketch — Teaser Trailer">
+            <img class="trailer-facade__thumb"
+              src="https://i.ytimg.com/vi/b32JXo8g6tw/maxresdefault.jpg"
+              srcset="https://i.ytimg.com/vi/b32JXo8g6tw/hqdefault.jpg 480w,
+                      https://i.ytimg.com/vi/b32JXo8g6tw/sddefault.jpg 640w,
+                      https://i.ytimg.com/vi/b32JXo8g6tw/maxresdefault.jpg 1280w"
+              sizes="(min-width: 760px) 1080px, 100vw"
+              alt=""
+              width="1280" height="720"
+              loading="lazy" decoding="async">
+            <button type="button" class="trailer-facade__play" aria-label="Play Serenity Sketch teaser trailer"></button>
+          </div>
         </figure>
       </div>
     </section>
@@ -144,15 +155,21 @@
             <p><strong>Trace water on stone</strong>, in a beautful simulation of the ancient Zen Practice. An elegant simplicity that reaches deeper than you expect. <strong>Let go</strong> of your creation</strong> as it gracefully evaporates. No undo. No save. No self-judgment. <strong>A Practice</strong> as old as brushwork, and as quiet as breath.</p>
           </div>
           <div class="pillar-media pillar-media--triple" aria-label="Three short clips of painting in different settings">
-            <video autoplay muted loop playsinline preload="none" data-lazy-video poster="assets/images/Painting_Resonance-600x338.webp">
-              <source src="assets/vids/PaintingForest_short.mp4" type="video/mp4">
-            </video>
-            <video autoplay muted loop playsinline preload="none" data-lazy-video poster="assets/images/Painting_ChildsPlay-600x338.webp">
-              <source src="assets/vids/PaintingBeach_short.mp4" type="video/mp4">
-            </video>
-            <video autoplay muted loop playsinline preload="none" data-lazy-video poster="assets/images/Painting_Cycles-600x338.webp">
-              <source src="assets/vids/PaintingCandlelight_short.mp4" type="video/mp4">
-            </video>
+            <video autoplay muted loop playsinline preload="none"
+              data-lazy-webm="assets/vids/sanctuary_loop_mobile.webm"
+              data-lazy-mp4="assets/vids/sanctuary_loop_desktop_350bit.mp4"
+              poster="assets/images/Painting_Resonance-600x338.webp"
+              aria-label="Painting in a sanctuary setting"></video>
+            <video autoplay muted loop playsinline preload="none"
+              data-lazy-webm="assets/vids/beach_loop_mobile.webm"
+              data-lazy-mp4="assets/vids/beach_loop_desktop_350bit.mp4"
+              poster="assets/images/Painting_ChildsPlay-600x338.webp"
+              aria-label="Painting on a beach"></video>
+            <video autoplay muted loop playsinline preload="none"
+              data-lazy-webm="assets/vids/cliffs_loop_mobile.webm"
+              data-lazy-mp4="assets/vids/cliffs_loop_desktop_350bit.mp4"
+              poster="assets/images/Painting_Cycles-600x338.webp"
+              aria-label="Painting among cliffs"></video>
           </div>
         </div>
       </article>
@@ -216,42 +233,42 @@
                 <figure class="settings-carousel__slide" id="settings-slide-1" aria-labelledby="settings-caption-1">
                   <picture>
                     <source media="(min-width: 640px)" srcset="assets/images/Painting_Resonance-800x450.webp">
-                    <img src="assets/images/Painting_Resonance-600x338.webp" alt="Rising sun on glimmering water" width="600" height="338" decoding="async" fetchpriority="high">
+                    <img src="assets/images/Painting_Resonance-600x338.webp" alt="Rising sun on glimmering water" width="600" height="338" decoding="async">
                   </picture>
                   <figcaption id="settings-caption-1">The rising sun warms your skin, and plays off the glimmering water.</figcaption>
                 </figure>
                 <figure class="settings-carousel__slide" id="settings-slide-2" aria-labelledby="settings-caption-2" aria-hidden="true">
                   <picture>
-                    <source media="(min-width: 640px)" srcset="assets/images/Painting_Lineage-800x450.webp">
-                    <img src="assets/images/Painting_Lineage-600x338.webp" alt="A dense, ancient forest" width="600" height="338" loading="lazy" decoding="async">
+                    <source media="(min-width: 640px)" data-srcset="assets/images/Painting_Lineage-800x450.webp">
+                    <img data-src="assets/images/Painting_Lineage-600x338.webp" alt="A dense, ancient forest" width="600" height="338" decoding="async">
                   </picture>
                   <figcaption id="settings-caption-2">Your footsteps take you into a dense, ancient forest.</figcaption>
                 </figure>
                 <figure class="settings-carousel__slide" id="settings-slide-3" aria-labelledby="settings-caption-3" aria-hidden="true">
                   <picture>
-                    <source media="(min-width: 640px)" srcset="assets/images/Painting_Imperfection-800x450.webp">
-                    <img src="assets/images/Painting_Imperfection-600x338.webp" alt="Weathered rocks in soft shadows" width="600" height="338" loading="lazy" decoding="async">
+                    <source media="(min-width: 640px)" data-srcset="assets/images/Painting_Imperfection-800x450.webp">
+                    <img data-src="assets/images/Painting_Imperfection-600x338.webp" alt="Weathered rocks in soft shadows" width="600" height="338" decoding="async">
                   </picture>
                   <figcaption id="settings-caption-3">The smooth, weathered rocks around you are bathed in soft shadows.</figcaption>
                 </figure>
                 <figure class="settings-carousel__slide" id="settings-slide-4" aria-labelledby="settings-caption-4" aria-hidden="true">
                   <picture>
-                    <source media="(min-width: 640px)" srcset="assets/images/Painting_Initiation-800x450.webp">
-                    <img src="assets/images/Painting_Initiation-600x338.webp" alt="A stone on a warm shoreline" width="600" height="338" loading="lazy" decoding="async">
+                    <source media="(min-width: 640px)" data-srcset="assets/images/Painting_Initiation-800x450.webp">
+                    <img data-src="assets/images/Painting_Initiation-600x338.webp" alt="A stone on a warm shoreline" width="600" height="338" decoding="async">
                   </picture>
                   <figcaption id="settings-caption-4">The glowing sky lights the shoreline, warming the sand where you sit.</figcaption>
                 </figure>
                 <figure class="settings-carousel__slide" id="settings-slide-5" aria-labelledby="settings-caption-5" aria-hidden="true">
                   <picture>
-                    <source media="(min-width: 640px)" srcset="assets/images/Painting_Cycles-800x450.webp">
-                    <img src="assets/images/Painting_Cycles-600x338.webp" alt="A mossy fallen tree" width="600" height="338" loading="lazy" decoding="async">
+                    <source media="(min-width: 640px)" data-srcset="assets/images/Painting_Cycles-800x450.webp">
+                    <img data-src="assets/images/Painting_Cycles-600x338.webp" alt="A mossy fallen tree" width="600" height="338" decoding="async">
                   </picture>
                   <figcaption id="settings-caption-5">Ahead, you spot a mossy fallen tree. All things come to pass.</figcaption>
                 </figure>
                 <figure class="settings-carousel__slide" id="settings-slide-6" aria-labelledby="settings-caption-6" aria-hidden="true">
                   <picture>
-                    <source media="(min-width: 640px)" srcset="assets/images/Painting_ChildsPlay-800x450.webp">
-                    <img src="assets/images/Painting_ChildsPlay-600x338.webp" alt="A bright, lively forest passage" width="600" height="338" loading="lazy" decoding="async">
+                    <source media="(min-width: 640px)" data-srcset="assets/images/Painting_ChildsPlay-800x450.webp">
+                    <img data-src="assets/images/Painting_ChildsPlay-600x338.webp" alt="A bright, lively forest passage" width="600" height="338" decoding="async">
                   </picture>
                   <figcaption id="settings-caption-6">You make your way through a bright and lively passage of the forest.</figcaption>
                 </figure>
@@ -523,24 +540,100 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    const lazyVideos = Array.from(document.querySelectorAll('video[data-lazy-video]'));
+    const heroPosters = {
+      1920: 'assets/images/presskit_heroVid_still-1920x1080.webp',
+      1200: 'assets/images/presskit_heroVid_still-1200x675.webp',
+      800: 'assets/images/presskit_heroVid_still-800x450.webp',
+      600: 'assets/images/presskit_heroVid_still-600x338.webp'
+    };
+    const pickHeroPoster = () => {
+      const heroVideo = document.getElementById('hero-video');
+      if (!heroVideo) return;
+      const w = window.innerWidth;
+      const poster = w >= 1200 ? heroPosters[1920]
+        : w >= 768 ? heroPosters[1200]
+        : w >= 480 ? heroPosters[800]
+        : heroPosters[600];
+      heroVideo.poster = poster;
+    };
+    pickHeroPoster();
+    window.addEventListener('resize', pickHeroPoster, { passive: true });
+
+    const hydrateVideo = video => {
+      if (video.dataset.hydrated) return;
+      const webm = video.getAttribute('data-lazy-webm');
+      const mp4 = video.getAttribute('data-lazy-mp4');
+      const legacy = video.getAttribute('data-lazy-video');
+      if (!webm && !mp4 && !legacy) return;
+      video.dataset.hydrated = 'true';
+      const addSource = (src, type) => {
+        const source = document.createElement('source');
+        source.src = src;
+        source.type = type;
+        video.appendChild(source);
+      };
+      if (webm) addSource(webm, 'video/webm');
+      if (mp4) addSource(mp4, 'video/mp4');
+      if (!webm && !mp4 && legacy) addSource(legacy, 'video/mp4');
+      video.preload = 'metadata';
+      video.load();
+      if (video.hasAttribute('autoplay') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {});
+        }
+      }
+    };
+
+    const lazyVideos = Array.from(document.querySelectorAll('video[data-lazy-webm], video[data-lazy-mp4], video[data-lazy-video]'));
+    const videoRootMargin = window.matchMedia('(max-width: 599px)').matches ? '0px 0px' : '120px 0px';
     if ('IntersectionObserver' in window) {
       const videoObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (!entry.isIntersecting) return;
-          const video = entry.target;
-          video.preload = 'metadata';
-          video.load();
-          videoObserver.unobserve(video);
+          hydrateVideo(entry.target);
+          videoObserver.unobserve(entry.target);
         });
-      }, { rootMargin: '220px 0px' });
+      }, { rootMargin: videoRootMargin });
       lazyVideos.forEach(video => videoObserver.observe(video));
     } else {
-      lazyVideos.forEach(video => {
-        video.preload = 'metadata';
-        video.load();
-      });
+      lazyVideos.forEach(hydrateVideo);
     }
+
+    document.querySelectorAll('.trailer-facade').forEach(facade => {
+      const videoId = facade.dataset.youtubeId;
+      const title = facade.dataset.youtubeTitle || 'YouTube video';
+      const thumb = facade.querySelector('.trailer-facade__thumb');
+      if (thumb && videoId) {
+        thumb.addEventListener('error', () => {
+          const src = thumb.currentSrc || thumb.src;
+          if (src.includes('maxresdefault')) {
+            thumb.src = `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`;
+          } else if (src.includes('sddefault')) {
+            thumb.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+          }
+        });
+      }
+      const activate = () => {
+        if (facade.classList.contains('is-playing')) return;
+        facade.classList.add('is-playing');
+        const iframe = document.createElement('iframe');
+        iframe.className = 'trailer-video';
+        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+        iframe.title = title;
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', '');
+        facade.appendChild(iframe);
+      };
+      facade.querySelector('.trailer-facade__play')?.addEventListener('click', activate);
+      facade.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activate();
+        }
+      });
+    });
 
     const lazyAudios = Array.from(document.querySelectorAll('audio[data-lazy-audio]'));
     const hydrateAudio = audio => {
@@ -590,6 +683,19 @@
 
       let activeIndex = 0;
 
+      const hydrateSlideImage = slide => {
+        const img = slide.querySelector('img[data-src]');
+        const source = slide.querySelector('source[data-srcset]');
+        if (img && img.dataset.src) {
+          img.src = img.dataset.src;
+          delete img.dataset.src;
+        }
+        if (source && source.dataset.srcset) {
+          source.srcset = source.dataset.srcset;
+          delete source.dataset.srcset;
+        }
+      };
+
       const setActive = index => {
         activeIndex = Math.max(0, Math.min(index, slides.length - 1));
         slides.forEach((slide, i) => {
@@ -600,6 +706,9 @@
         });
         if (prevBtn) prevBtn.disabled = activeIndex === 0;
         if (nextBtn) nextBtn.disabled = activeIndex === slides.length - 1;
+        hydrateSlideImage(slides[activeIndex]);
+        const next = slides[activeIndex + 1];
+        if (next) hydrateSlideImage(next);
       };
 
       const goTo = index => {
@@ -633,7 +742,7 @@
     });
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const heroVideo = document.getElementById('hero-video');
+    const heroVideoEl = document.getElementById('hero-video');
     const updateMotionPreference = prefersReduced => {
       lazyVideos.forEach(video => {
         if (prefersReduced) {
@@ -642,16 +751,17 @@
           return;
         }
         video.setAttribute('autoplay', '');
+        if (!video.dataset.hydrated) return;
         const playPromise = video.play();
         if (playPromise && typeof playPromise.catch === 'function') {
           playPromise.catch(() => {});
         }
       });
-      if (heroVideo) {
+      if (heroVideoEl) {
         if (prefersReduced) {
-          heroVideo.pause();
+          heroVideoEl.pause();
         } else {
-          const p = heroVideo.play();
+          const p = heroVideoEl.play();
           if (p && typeof p.catch === 'function') p.catch(() => {});
         }
       }

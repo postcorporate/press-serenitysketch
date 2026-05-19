@@ -3,8 +3,6 @@
    Design system v2 — magazine-style, paper-warm, generous
    =========================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap");
-
 :root {
   /* Palette — paper, ink, stone, water, copper */
   --paper:        #F6EFE3;   /* warm cream page */
@@ -729,6 +727,58 @@ h2.display { font-size: clamp(2rem, 4.4vw, 3.2rem); }
   aspect-ratio: 16 / 9;
   border: 0;
   background: var(--ink);
+}
+
+.trailer-facade {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--ink);
+  cursor: pointer;
+}
+.trailer-facade__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.trailer-facade__play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(246, 239, 227, 0.92);
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(20, 12, 4, 0.35);
+  transition: transform 160ms var(--ease), background 160ms var(--ease);
+}
+.trailer-facade__play::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border-style: solid;
+  border-width: 0.65rem 0 0.65rem 1.1rem;
+  border-color: transparent transparent transparent var(--copper-deep);
+  transform: translateX(0.15rem);
+}
+.trailer-facade:hover .trailer-facade__play,
+.trailer-facade:focus-within .trailer-facade__play {
+  transform: scale(1.06);
+  background: var(--paper);
+}
+.trailer-facade.is-playing {
+  cursor: default;
+}
+.trailer-facade.is-playing .trailer-facade__play,
+.trailer-facade.is-playing .trailer-facade__thumb {
+  display: none;
 }
 
 /* ---------- Features pillars ---------- */
